@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.18</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<satoken.version>1.37.0</satoken.version>
+		<hutool.version>5.8.22</hutool.version>
+		<lombok.version>1.18.30</lombok.version>
+	</properties>
+
+	<groupId>com.universe.ads</groupId>
+	<artifactId>wa-node</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>wa-node</name>
+	<description>wa转发节点</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- starter-test：junit + spring-test + mockito -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- hutool 的依赖配置-->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-bom</artifactId>
+			<version>${hutool.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.dev33</groupId>
+			<artifactId>sa-token-spring-boot-starter</artifactId>
+			<version>${satoken.version}</version>
+		</dependency>
+		<!-- Sa-Token 整合 jwt -->
+		<dependency>
+			<groupId>cn.dev33</groupId>
+			<artifactId>sa-token-jwt</artifactId>
+			<version>${satoken.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>cn.hutool</groupId>
+					<artifactId>hutool-all</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

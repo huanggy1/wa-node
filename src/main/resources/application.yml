@@ -1,0 +1,4 @@
+server:
+  port: ${NODE_PORT:18800}
+socket:
+  port: 18806
